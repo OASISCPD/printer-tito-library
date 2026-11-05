@@ -1,0 +1,24 @@
+// Imprimir un ticket
+const r = await imprimirTicket({
+  barcode:  '007298083755409850', // con o sin guiones
+  casino:   'BINGO OASIS',
+  sala:     'Oasis Pilar',
+  tipo:     'CPD',
+  terminal: '9',
+  fecha:    '12/08/2026',
+  hora:     '11:30:00',
+  nro:      '2594',
+  importe:  '0.10',          // texto se genera automáticamente
+  vigencia: '7',
+  maquina:  '2000000000',
+});
+// r.code: 'impreso' | 'sin_papel' | 'ticket_en_bandeja' |
+//          'imprimiendo' | 'impresora_inactiva' | 'timeout' | 'error'
+// r.mensaje: descripción del resultado
+
+// Consultar estado
+const e = await obtenerEstado('9');
+// e.code: 'listo' | 'sin_papel' | 'imprimiendo' | 'ticket_en_bandeja' | ...
+
+// Recibir logs en tu propio sistema
+titoOnLog = (direccion, texto) => console.log(direccion, texto);
